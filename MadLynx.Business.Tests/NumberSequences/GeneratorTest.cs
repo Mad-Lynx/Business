@@ -41,7 +41,7 @@ namespace MadLynx.Business.Tests.NumberSequences
 			counterDaoMock.Setup(dao => dao.GetCounterWithLock(1))
 				.Returns(new TestCounter { Number = 1, Format = format, Value = initialValue });
 
-			var num = generator.GenerateNum(1, offset: offset);
+			var num = generator.GenerateNum(1, DateTime.Now, offset);
 
 			var yearIndexOf = num.LastIndexOf('|');
 

@@ -1,11 +1,17 @@
-﻿namespace MadLynx.Business.NumberSequences
+﻿using System;
+
+namespace MadLynx.Business.NumberSequences
 {
 	public interface ICounter
 	{
-		ulong Number { get; set; }
+		ulong Number { get; }
 
 		ulong? Value { get; set; }
 
-		string Format { get; set; }
+		string Format { get; }
+
+		ResetMode ResetMode { get; }
+
+		DateTime LastResetTime { get; set; }
 	}
 }

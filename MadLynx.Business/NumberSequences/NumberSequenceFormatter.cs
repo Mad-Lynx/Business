@@ -21,8 +21,6 @@ namespace MadLynx.Business.NumberSequences
 
 		private const char DigitsMask = '#';
 		private const char LettersMask = '&';
-		private const char FirstDigit = '0';
-		private const char FirstLetter = 'A';
 		private static readonly char[] FormattingChars = { DigitsMask, LettersMask };
 		private readonly Dictionary<char, IFormatHandler> formatHandlers;
 
@@ -73,11 +71,11 @@ namespace MadLynx.Business.NumberSequences
 				switch (patternChar)
 				{
 					case DigitsMask:
-						patternChar = (char)((num % 10) + FirstDigit);
+						patternChar = (char)((num % 10) + FormatHandlers.FirstDigit);
 						num /= 10;
 						break;
 					case LettersMask:
-						patternChar = (char)((num % 26) + FirstLetter);
+						patternChar = (char)((num % 26) + FormatHandlers.FirstLetter);
 						num /= 26;
 						break;
 				}
@@ -127,7 +125,7 @@ namespace MadLynx.Business.NumberSequences
 			if (buildingContext.NumberBuilder.Length != context.Format.Length)
 				throw new InvalidOperationException("Generated number has a different length than given format!");
 
-			return buildingContext.NumberBuilder.ToString();
+			return buildingContext.NumberBuilder.Replace(FormatHandlers.CharToRemove.ToString(), String.Empty).ToString();
 		}
 
 		/// <summary>

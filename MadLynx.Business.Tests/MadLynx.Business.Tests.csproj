@@ -43,6 +43,7 @@
     <Compile Include="NumberSequences\CounterConcurrencyBaseTest.cs" />
     <Compile Include="NumberSequences\GeneratorConcurrencyTest.cs" />
     <Compile Include="NumberSequences\GeneratorTest.cs" />
+    <Compile Include="NumberSequences\ResetterTest.cs" />
     <Compile Include="NumberSequences\SimpleCounterConcurrencyTest.cs" />
     <Compile Include="NumberSequences\TestCounter.cs" />
     <Compile Include="NumberSequences\FormatterTest.cs" />

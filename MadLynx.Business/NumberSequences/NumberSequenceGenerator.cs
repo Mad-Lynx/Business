@@ -10,28 +10,24 @@ namespace MadLynx.Business.NumberSequences
 		private readonly ICounterDao<TCounter> counterDao;
 		private readonly INumberSequenceFormatter numberSequenceFormatter;
 
-		#region Constructors
-
 		public NumberSequenceGenerator(ICounterDao<TCounter> counterDao, INumberSequenceFormatter numberSequenceFormatter)
 		{
 			this.counterDao = counterDao;
 			this.numberSequenceFormatter = numberSequenceFormatter;
 		}
 
-		#endregion
-
 		/// <summary>
 		/// Get next number in sequence
 		/// </summary>
-		public string GenerateNum(ulong counterNumber, Func<DateTime> dateGetter = null, ulong offset = 0)
+		public string GenerateNum(ulong counterNumber, DateTime date, ulong offset = 0)
 		{
-			return GenerateNum(counterNumber, null, dateGetter, offset);
+			return GenerateNum(counterNumber, null, date, offset);
 		}
 
 		/// <summary>
 		/// Get next number in sequence
 		/// </summary>
-		public string GenerateNum(ulong counterNumber, string format, Func<DateTime> dateGetter = null, ulong offset = 0)
+		public string GenerateNum(ulong counterNumber, string format, DateTime? date = null, ulong offset = 0)
 		{
 			var counter = counterDao.GetCounterWithLock(counterNumber);
 
@@ -40,7 +36,7 @@ namespace MadLynx.Business.NumberSequences
 
 			counterDao.UpdateCounter(counter);
 
-			return numberSequenceFormatter.Format(format ?? counter.Format, value + offset, dateGetter != null ? dateGetter() : DateTime.Now);
+			return numberSequenceFormatter.Format(format ?? counter.Format, value + offset, date ?? DateTime.Now);
 		}
 	}
 }

@@ -19,16 +19,16 @@ namespace MadLynx.Business.Tests.NumberSequences
 			var generator = CreateGenerator();
 
 			// Generate first number, and check if everything is ok
-			Assert.AreEqual("N/0123", generator.GenerateNum(CounterNum));
+			Assert.AreEqual("N/0123", generator.GenerateNum(CounterNum, DateTime.Now));
 
 			ParallelEnumerable.Range(1, 20).ForAll(
 				i =>
 				{
-					var num = generator.GenerateNum(CounterNum);
+					var num = generator.GenerateNum(CounterNum, DateTime.Now);
 					Console.WriteLine("{0:00}) [Thread-{1:00}] {2}", i, Thread.CurrentThread.ManagedThreadId, num);
 				});
 
-			Assert.AreEqual("N/0144", generator.GenerateNum(CounterNum));
+			Assert.AreEqual("N/0144", generator.GenerateNum(CounterNum, DateTime.Now));
 		}
 
 		private static NumberSequenceGenerator<TestCounter> CreateGenerator()

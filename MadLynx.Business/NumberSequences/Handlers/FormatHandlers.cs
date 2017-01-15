@@ -27,7 +27,18 @@
 		/// </summary>
 		public static readonly IFormatHandler LettersHandler = new InternalNumHandler(FirstLetter);
 
-		private const char FirstDigit = '0';
-		private const char FirstLetter = 'A';
+		/// <summary>
+		/// Handler for normal digits, but it will remove 'leading zeros'. May be use with [%] placeholder
+		/// </summary>
+		/// <remarks>
+		/// This handler is not part of default handler set
+		/// </remarks>
+		public static readonly IFormatHandler BlankHandler = new InternalNumHandler(CharToRemove);
+
+		internal const char FirstDigit = '0';
+
+		internal const char FirstLetter = 'A';
+
+		internal const char CharToRemove = '\0';
 	}
 }

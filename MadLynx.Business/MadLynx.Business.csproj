@@ -35,6 +35,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\StringBuilderExtensions.cs" />
+    <Compile Include="NumberSequences\INumberSequenceResetter.cs" />
+    <Compile Include="NumberSequences\NumberSequenceResetter.cs" />
+    <Compile Include="NumberSequences\ResetMode.cs" />
     <Compile Include="NumberSequences\Handlers\BaseFormatHandler.cs" />
     <Compile Include="NumberSequences\Handlers\DateTimeDayHandler.cs" />
     <Compile Include="NumberSequences\Handlers\DateTimeMonthHandler.cs" />

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using MadLynx.Business.NumberSequences;
+using MadLynx.Business.NumberSequences.Handlers;
 using NUnit.Framework;
 
 namespace MadLynx.Business.Tests.NumberSequences
@@ -43,6 +45,25 @@ namespace MadLynx.Business.Tests.NumberSequences
 		[TestCase("F/yyyy/###hh", 396u, Result = "F/1492/396hh")]
 		public string TestNumberFillsCorrectly(string format, uint num)
 		{
+			var date = new DateTime(1492, 7, 15);
+
+			return formatter.Format(format, num, date);
+		}
+
+		[TestCase("F/yyyy/#####", 396u, Result = "F/yyyy/00396")]
+		[TestCase("F/yyyy/###", 396u, Result = "F/yyyy/396")]
+		[TestCase("F/yyyy/%%%", 396u, Result = "F/yyyy/396")]
+		[TestCase("F/yyyy/%%%%%", 396u, Result = "F/yyyy/396")]
+		[TestCase("F/yyyy/%%%%%%", 396u, Result = "F/yyyy/396")]
+		public string TestOwnHandlers(string format, uint num)
+		{
+			formatter = new NumberSequenceFormatter(
+				new Dictionary<char, IFormatHandler>
+				{
+					{ '#', FormatHandlers.DigitsHandler },
+					{ '%', FormatHandlers.BlankHandler },
+				});
+
 			var date = new DateTime(1492, 7, 15);
 
 			return formatter.Format(format, num, date);
