@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadLynx.Business", "MadLynx.Business\MadLynx.Business.csproj", "{56AC33AF-5383-4D3B-A479-FEA19DDABEF0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{312E915B-34C0-4E2D-B412-02F85DE1759F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadLynx.Business.Tests", "MadLynx.Business.Tests\MadLynx.Business.Tests.csproj", "{DEC507AA-7C23-4601-8949-D00A01A192FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56AC33AF-5383-4D3B-A479-FEA19DDABEF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56AC33AF-5383-4D3B-A479-FEA19DDABEF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56AC33AF-5383-4D3B-A479-FEA19DDABEF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56AC33AF-5383-4D3B-A479-FEA19DDABEF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEC507AA-7C23-4601-8949-D00A01A192FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEC507AA-7C23-4601-8949-D00A01A192FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEC507AA-7C23-4601-8949-D00A01A192FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEC507AA-7C23-4601-8949-D00A01A192FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DEC507AA-7C23-4601-8949-D00A01A192FA} = {312E915B-34C0-4E2D-B412-02F85DE1759F}
+	EndGlobalSection
+EndGlobal
